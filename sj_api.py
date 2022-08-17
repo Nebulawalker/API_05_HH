@@ -35,7 +35,7 @@ def get_all_sj_vacancies(
             "town": "4",
             "page": page
         }
-        
+
         page_response = requests.get(url, params=payload, headers=headers)
         page_response.raise_for_status()
 
