@@ -36,6 +36,7 @@ def get_all_hh_vacancies(
             "per_page": HH_MAX_VACANCIES_PER_PAGE,
             "page": page
         }
+
         page_response = requests.get(url, params=payload)
         page_response.raise_for_status()
 
@@ -51,7 +52,10 @@ def get_stats_on_hh_vacancies(search_requests: Iterable) -> dict:
     for search_request in search_requests:
         amount_of_salaries = 0
         vacancies_processed = 0
-        vacancies = get_all_hh_vacancies(HH_BASE_URL, search_request)
+        try:
+            vacancies = get_all_hh_vacancies(HH_BASE_URL, search_request)
+        except requests.exceptions.HTTPError as error:
+            print(f"Ошибка при получении данных: {error}")
         vacancies_found = len(vacancies)
 
         for vacancy in vacancies:

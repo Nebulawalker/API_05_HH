@@ -35,6 +35,7 @@ def get_all_sj_vacancies(
             "town": "4",
             "page": page
         }
+        
         page_response = requests.get(url, params=payload, headers=headers)
         page_response.raise_for_status()
 
@@ -53,11 +54,15 @@ def get_stats_on_sj_vacancies(
     for search_request in search_requests:
         amount_of_salaries = 0
         vacancies_processed = 0
-        vacancies = get_all_sj_vacancies(
-                        SJ_BASE_URL,
-                        secret_key,
-                        search_request
-                    )
+        try:
+            vacancies = get_all_sj_vacancies(
+                            SJ_BASE_URL,
+                            secret_key,
+                            search_request
+                        )
+        except requests.exceptions.HTTPError as error:
+            print(f"Ошибка при получении данных: {error}")
+
         vacancies_found = len(vacancies)
 
         for vacancy in vacancies:
