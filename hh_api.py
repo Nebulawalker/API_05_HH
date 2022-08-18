@@ -9,10 +9,10 @@ HH_MOSCOW_INDEX = 1
 
 
 def predict_hh_rub_salary(vacancy: dict) -> int | None:
-    salary = vacancy.get("salary", None)
+    salary = vacancy.get("salary")
     if salary and salary["currency"] == "RUR":
-        salary_from = salary.get("from", None)
-        salary_to = salary.get("to", None)
+        salary_from = salary.get("from")
+        salary_to = salary.get("to")
 
         if salary_to and salary_from:
             return int((salary_to + salary_from) / 2)
@@ -33,7 +33,7 @@ def get_all_hh_vacancies(
     for page in count(0):
         payload = {
             "text": f"Программист {search_request}",
-            "area": "1",
+            "area": HH_MOSCOW_INDEX,
             "per_page": HH_MAX_VACANCIES_PER_PAGE,
             "page": page
         }

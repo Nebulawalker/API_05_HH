@@ -9,8 +9,8 @@ SJ_MOSCOW_INDEX = 4
 
 def predict_sj_rub_salary(vacancy):
     if vacancy and vacancy.get("currency") == "rub":
-        salary_from = vacancy.get("payment_from", None)
-        salary_to = vacancy.get("payment_to", None)
+        salary_from = vacancy.get("payment_from")
+        salary_to = vacancy.get("payment_to")
 
         if salary_to and salary_from:
             return int((salary_to + salary_from) / 2)
