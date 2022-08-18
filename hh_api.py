@@ -5,6 +5,7 @@ from itertools import count
 
 HH_BASE_URL = "https://api.hh.ru/vacancies"
 HH_MAX_VACANCIES_PER_PAGE = 100
+HH_MOSCOW_INDEX = 1
 
 
 def predict_hh_rub_salary(vacancy: dict) -> int | None:

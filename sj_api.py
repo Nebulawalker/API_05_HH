@@ -4,6 +4,7 @@ from typing import Iterable
 
 
 SJ_BASE_URL = "https://api.superjob.ru/2.0/vacancies/"
+SJ_MOSCOW_INDEX = 4
 
 
 def predict_sj_rub_salary(vacancy):
@@ -32,7 +33,7 @@ def get_all_sj_vacancies(
         headers = {'X-Api-App-Id': secret_key}
         payload = {
             "keyword": f"Программист {search_request}",
-            "town": "4",
+            "town": SJ_MOSCOW_INDEX,
             "page": page
         }
 
