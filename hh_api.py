@@ -16,7 +16,7 @@ def predict_hh_rub_salary(vacancy: dict) -> int | None:
         salary_from = salary.get("from")
         salary_to = salary.get("to")
 
-    return predict_rub_salary(salary_from, salary_to)
+        return predict_rub_salary(salary_from, salary_to)
 
 
 def get_all_hh_vacancies(

@@ -14,7 +14,7 @@ def predict_sj_rub_salary(vacancy):
         salary_from = vacancy.get("payment_from")
         salary_to = vacancy.get("payment_to")
 
-    return predict_rub_salary(salary_from, salary_to)
+        return predict_rub_salary(salary_from, salary_to)
 
 
 def get_all_sj_vacancies(

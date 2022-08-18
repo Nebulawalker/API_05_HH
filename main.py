@@ -21,7 +21,7 @@ def main():
     hh_table = generate_table_for_console(
         vacancies_stats_hh,
         "HeadHunter Moscow")
-    print(hh_table)
+    print(hh_table.table)
 
     vacancies_stats_sj = get_stats_on_sj_vacancies(
         superjob_secret_key,
@@ -29,7 +29,7 @@ def main():
     sj_table = generate_table_for_console(
         vacancies_stats_sj,
         "SuperJob Moscow")
-    print(sj_table)
+    print(sj_table.table)
 
 
 if __name__ == "__main__":
