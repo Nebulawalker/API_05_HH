@@ -6,7 +6,7 @@ from hh_api import get_stats_on_hh_vacancies
 from sj_api import get_stats_on_sj_vacancies
 
 
-programming_languages = (
+PROGRAMMING_LANGUAGES = (
     "C#", "Objective-C", "Ruby", "Java", "C",
     "Typescript", "1С", "Go", "Swift",
     "C++", "PHP", "JavaScript", "Python"
@@ -17,7 +17,7 @@ def main():
     load_dotenv()
     superjob_secret_key = os.getenv('SUPERJOB_SECRET_KEY')
 
-    vacancies_stats_hh = get_stats_on_hh_vacancies(programming_languages)
+    vacancies_stats_hh = get_stats_on_hh_vacancies(PROGRAMMING_LANGUAGES)
     hh_table = generate_table_for_console(
         vacancies_stats_hh,
         "HeadHunter Moscow")
@@ -25,7 +25,7 @@ def main():
 
     vacancies_stats_sj = get_stats_on_sj_vacancies(
         superjob_secret_key,
-        programming_languages)
+        PROGRAMMING_LANGUAGES)
     sj_table = generate_table_for_console(
         vacancies_stats_sj,
         "SuperJob Moscow")
