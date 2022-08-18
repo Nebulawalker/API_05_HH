@@ -2,6 +2,8 @@ import requests
 from itertools import count
 from typing import Iterable
 
+from data_processing import predict_rub_salary
+
 
 SJ_BASE_URL = "https://api.superjob.ru/2.0/vacancies/"
 SJ_MOSCOW_INDEX = 4
@@ -12,14 +14,7 @@ def predict_sj_rub_salary(vacancy):
         salary_from = vacancy.get("payment_from")
         salary_to = vacancy.get("payment_to")
 
-        if salary_to and salary_from:
-            return int((salary_to + salary_from) / 2)
-        elif salary_from:
-            return int((salary_from * 1.2))
-        elif salary_to:
-            return int(salary_to * 0.8)
-    else:
-        return None
+    return predict_rub_salary(salary_from, salary_to)
 
 
 def get_all_sj_vacancies(

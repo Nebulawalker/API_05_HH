@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-from print_data import generate_table_for_console
+from data_processing import generate_table_for_console
 from hh_api import get_stats_on_hh_vacancies
 from sj_api import get_stats_on_sj_vacancies
 

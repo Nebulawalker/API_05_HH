@@ -2,6 +2,8 @@ import requests
 from typing import Iterable
 from itertools import count
 
+from data_processing import predict_rub_salary
+
 
 HH_BASE_URL = "https://api.hh.ru/vacancies"
 HH_MAX_VACANCIES_PER_PAGE = 100
@@ -14,14 +16,7 @@ def predict_hh_rub_salary(vacancy: dict) -> int | None:
         salary_from = salary.get("from")
         salary_to = salary.get("to")
 
-        if salary_to and salary_from:
-            return int((salary_to + salary_from) / 2)
-        elif salary_from:
-            return int((salary_from * 1.2))
-        elif salary_to:
-            return int(salary_to * 0.8)
-    else:
-        return None
+    return predict_rub_salary(salary_from, salary_to)
 
 
 def get_all_hh_vacancies(
