@@ -54,14 +54,11 @@ def get_stats_on_sj_vacancies(
     for search_request in search_requests:
         amount_of_salaries = 0
         vacancies_processed = 0
-        try:
-            vacancies = get_all_sj_vacancies(
-                            SJ_BASE_URL,
-                            secret_key,
-                            search_request
-                        )
-        except requests.exceptions.HTTPError as error:
-            print(f"Ошибка при получении данных: {error}")
+        vacancies = get_all_sj_vacancies(
+                        SJ_BASE_URL,
+                        secret_key,
+                        search_request
+                    )
 
         vacancies_found = len(vacancies)
 

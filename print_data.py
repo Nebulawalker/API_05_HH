@@ -1,7 +1,7 @@
 from terminaltables import SingleTable
 
 
-def print_table_in_console(vacancy_stats: dict, title: str) -> None:
+def generate_table_for_console(vacancy_stats: dict, title: str) -> None:
     table_data = [
         ('Язык программирования',
          'Вакансий найдено',
@@ -17,5 +17,4 @@ def print_table_in_console(vacancy_stats: dict, title: str) -> None:
              )
         )
     table_instance = SingleTable(table_data, title)
-    print(table_instance.table)
-    print()
+    return table_instance
