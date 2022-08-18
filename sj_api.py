@@ -70,7 +70,7 @@ def get_stats_on_sj_vacancies(
                 amount_of_salaries = amount_of_salaries + predicted_salary
                 vacancies_processed += 1
 
-        if vacancies_processed != 0:
+        if vacancies_processed:
             average_salary = int(amount_of_salaries / vacancies_processed)
         else:
             average_salary = 0

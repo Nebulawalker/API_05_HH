@@ -63,7 +63,11 @@ def get_stats_on_hh_vacancies(search_requests: Iterable) -> dict:
                 amount_of_salaries = amount_of_salaries + predicted_salary
                 vacancies_processed += 1
 
-        average_salary = int(amount_of_salaries / vacancies_processed)
+        if vacancies_processed:
+            average_salary = int(amount_of_salaries / vacancies_processed)
+        else:
+            average_salary = 0
+
         vacancy_stats[search_request] = {
             "vacancies_found": vacancies_found,
             "vacancies_processed": vacancies_processed,
