@@ -33,9 +33,9 @@
 
 6. Запуск приложения:
 
-```bash
-python main.py
-```
+    ```bash
+    python main.py
+    ```
 
 ## Цель проекта
 
